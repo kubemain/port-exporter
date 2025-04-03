@@ -1,0 +1,33 @@
+hosts:
+  - ip: 10.102.16.1
+    describe: aiqa中控监控
+    ports:
+      - port: 9080
+        label: java-itil
+      - port: 9090
+        label: java-csc
+      - port: 9082
+        label: java-grocery
+      - port: 5000
+        label: midd-registry
+      - port: 3306
+        label: midd-mysql
+      - port: 6379
+        label: midd-redis
+      - port: 5672
+        label: midd-rabbitmq
+  - ip: 10.102.17.2
+    describe: aiqa底座监控
+    ports:
+      - port: 9100
+        label: node-exporter
+      - port: 9090
+        label: prometheus
+      - port: 3100
+        label: loki
+      - port: 9093
+        label: alertmanager
+      - port: 3101
+        label: promtail
+      - port: 3306
+        label: mysql

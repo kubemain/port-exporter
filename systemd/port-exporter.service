@@ -1,0 +1,17 @@
+[Unit]
+Description=port-exporter
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/root/exporter/port_exporter_linux_amd64 -c /root/exporter/config.yaml
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+RestartSec=30
+TimeoutStopSec=2
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

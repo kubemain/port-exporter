@@ -1,0 +1,5 @@
+# debug、info、error、off
+log_level: error
+port: 8081
+import:
+  - conf.d/*.yaml

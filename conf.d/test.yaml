@@ -1,0 +1,15 @@
+hosts:
+  - ip: "10.102.28.60"
+    describe: "测试监控端口"
+    ports:
+      - port: "80"
+        label: "nginx"
+      - port: "9096"
+        label: "promtail"
+  - ip: "10.102.28.61"
+    describe: "测试监控端口"
+    ports:
+      - port: "80"
+        label: "nginx"
+      - port: "8080"
+        label: "tomcat"
