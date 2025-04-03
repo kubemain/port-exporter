@@ -27,21 +27,6 @@ groups:
       summary: "告警 Port {{ $labels.port }} on host {{ $labels.host }} is down"
       description: "此端口 {{ $labels.port }} 在此主机上 {{ $labels.host }} 已经down掉，请检查故障原因."
 
-```
-```
-# 定义关于端口告警的配置
-groups:
-- name: port_status_alerts
-  rules:
-  - alert: PortDown
-    expr: port_status == 0
-    for: 1m
-    labels:
-      severity: 严重
-    annotations:
-      summary: "告警 Port {{ $labels.port }} on host {{ $labels.host }} is down"
-      description: "此端口 {{ $labels.port }} 在此主机上 {{ $labels.host }} 已经down掉，请检查故障原因."
-
 接着在Grafana添加自定义的监控图标，添加过滤指定的promsql即可过滤对应的主机
 ```
 
