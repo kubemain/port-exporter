@@ -1,8 +1,8 @@
 
-## 用于分布式监控多个组件的端口，可参考conf.d/aiqa.yaml,用来描述所监控的端口,并提供metrics
-对于一个节点有多个服务，并且有多套环境的情况下，此方法很容易，可以并结合dingding进行告警
+## 简化大型环境中分布式监控多个服务端口的痛点
 
-,并提供metrics
+监控定义端口可参考conf.d/aiqa.yaml,用来描述所监控的端口,并提供metrics
+对于一个节点有多个服务，并且有多套环境的情况下，此方法很容易，可以并结合dingding进行告警,并提供metrics
 
 在Prometheus.yml添加一个job即可，好处则不需要写很多target在prometheus中，则可以更简化维护
 ```
@@ -28,7 +28,7 @@ groups:
       description: "此端口 {{ $labels.port }} 在此主机上 {{ $labels.host }} 已经down掉，请检查故障原因."
 
 ```
-
+```
 # 定义关于端口告警的配置
 groups:
 - name: port_status_alerts
@@ -43,6 +43,9 @@ groups:
       description: "此端口 {{ $labels.port }} 在此主机上 {{ $labels.host }} 已经down掉，请检查故障原因."
 
 接着在Grafana添加自定义的监控图标，添加过滤指定的promsql即可过滤对应的主机
+```
+
+grafana定义promesql制作图表监控
 ```
 port_status{host="10.102.17.1"}
 port_status{host="10.102.15.1"}
